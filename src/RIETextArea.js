@@ -4,13 +4,14 @@ import RIEStatefulBase from './RIEStatefulBase';
 
 export default class RIETextArea extends RIEStatefulBase {
     keyDown = (event) => {
+        if(event.keyCode === 13 && !event.shiftKey) { this.finishEditing() }
         if (event.keyCode === 27) { this.cancelEditing() }     // Escape
     };
 
     renderEditingComponent = () => {
         return <textarea
-            rows={this.props.rows}
-            cols={this.props.cols}
+          rows={this.props.rows}
+          cols={this.props.cols}
             disabled={this.state.loading}
             className={this.makeClassString()}
             defaultValue={this.props.value}
