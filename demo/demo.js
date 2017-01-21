@@ -17323,6 +17323,7 @@
 
 	        _this.cancelEditing = function () {
 	            _this.setState({ editing: false, invalid: false });
+	            _this.props.onFinish ? _this.props.onFinish() : null;
 	        };
 
 	        _this.keyDown = function (event) {

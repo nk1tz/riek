@@ -24,6 +24,7 @@ export default class RIEStatefulBase extends RIEBase {
 
     cancelEditing = () => {
         this.setState({editing: false, invalid: false});
+        this.props.onFinish ? this.props.onFinish() : null;
     };
 
     keyDown = (event) => {
